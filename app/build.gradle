@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply from: "config.gradle"
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -15,11 +15,27 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    signingConfigs {
+        release {
+            keyAlias "kotlinWanandroid"
+            keyPassword "kotlinWanandroid"
+            storeFile file('../app/key/kotlinWanandroid.jks')
+            storePassword "kotlinWanandroid"
+        }
+    }
     buildTypes {
         release {
+            //不运行混淆文件
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "HostUrl", "\"${url["releaseUrl"]}\""
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            //影响安装的包名，在原有的包名后加.bug 可解决一个手机安装两个应用包（但注意签名文件，以及三方申请）
+//            applicationIdSuffix '.debug'
+            signingConfig signingConfigs.release
+            buildConfigField "String", "HostUrl", "\"${url["debugUrl"]}\""
         }
     }
 }
