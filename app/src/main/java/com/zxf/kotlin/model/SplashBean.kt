@@ -3,10 +3,7 @@ package com.zxf.kotlin.model
 /**
  * 启动页
  */
-class SplashBean(s: String) {
-    fun SplashBean(message: String?) {
-        this.message = message
-    }
+class SplashBean() {
 
     var message: String? = null
 }

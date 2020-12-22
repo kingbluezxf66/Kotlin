@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--    <data>-->
+    <data>
 
-    <!--        <variable-->
-    <!--            name="splash"-->
-    <!--            type="com.zxf.kotlin.model.SplashBean" />-->
-    <!--    </data>-->
+        <variable
+            name="splash"
+            type="com.zxf.kotlin.model.SplashBean" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
@@ -25,16 +25,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <com.zxf.kotlin.widget.CircleProgress-->
-<!--            android:id="@+id/circleProgress"-->
-<!--            android:layout_width="30dp"-->
-<!--            android:layout_height="30dp"-->
-<!--            android:layout_marginTop="25dp"-->
-<!--            android:layout_marginEnd="20dp"-->
-<!--            android:gravity="center"-->
-<!--            android:textColor="@color/colorPrimary"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <TextView
+            android:id="@+id/circleProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/color_99"
+            android:gravity="center"
+            android:padding="10dp"
+            android:clickable="true"
+            android:onClick="turnAnother"
+            android:text="@{splash.message}"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
