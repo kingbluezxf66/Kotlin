@@ -1,6 +1,6 @@
 package com.zxf.kotlin.help
 
-import android.util.Log
+import com.blankj.utilcode.util.LogUtils
 import com.zxf.kotlin.model.SearchHistory
 import com.zxf.kotlin.model.User
 import io.realm.Realm
@@ -36,9 +36,11 @@ class DataBaseHelper {
             //.migration(new MigrationOne()) //当发现新旧版本号不一致时，会自动调用迁移类完成迁移操作
             .build()
         realm = Realm.getInstance(config)
-        Log.i("kingblue", "DataBaseHelper: " + realm.getPath())
+        LogUtils.i("kingblue", "DataBaseHelper: " + realm.getPath())
     }
 
+//    //注入依赖
+//    //注入依赖
 //    //注入依赖
 //    @Inject
 //    fun DataBaseHelper() {
